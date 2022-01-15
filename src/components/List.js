@@ -1,17 +1,15 @@
 import React,{useContext} from 'react'
 import ListItem from './ListItem'
 import { usersContext } from '../contexts/usersContext'
+import styled from 'styled-components'
+const StyledUl = styled.ul`
+  width:100%
+`;
 
 const List = () => {
     const {state,dispatch} = useContext(usersContext)
     return (
-        <ul style={{
-            margin: "auto",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            width: "50%"
-          }}>
+        <StyledUl>
         {!!state.length && 
           state.map(({ id, name, lastName,telefono }) => (
             <ListItem
@@ -22,7 +20,7 @@ const List = () => {
                 dispatch={dispatch}
              />
           ))}
-        </ul>
+        </StyledUl>
     )
 }
 
